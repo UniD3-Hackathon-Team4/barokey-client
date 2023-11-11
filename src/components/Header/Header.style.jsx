@@ -50,6 +50,7 @@ export const Navbar = styled.nav`
 
 export const NavbarSection = styled.span`
 	display: flex;
+    white-space: nowrap;
 	align-items: center;
 	color: #fff;
 	text-align: center;
