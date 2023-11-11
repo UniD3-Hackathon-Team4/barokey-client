@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-// import { Colors } from "../../theme";
 
 export const Header = styled.header`
 	display: flex;
@@ -69,32 +68,5 @@ export const NavbarSection = styled.span`
 		opacity: ${(props) => (props.selected ? "1" : "0.7")};
 	}
 `;
-
-// export const Navbar = styled.nav`
-// 	display: flex;
-// 	text-align: center;
-// 	justify-content: space-around;
-// 	max-width: 800px;
-// 	margin: 0 auto;
-// 	gap: 40px;
-// `;
-
-// export const NavbarSection = styled.span`
-// 	color: #fff;
-// 	text-align: center;
-// 	font-size: 17px;
-// 	/* font-weight: 700; */
-// 	padding: 10px 20px;
-// 	margin: 5px;
-
-// 	&:first-child {
-// 		border-radius: 20px;
-// 		background: transparent;
-// 		padding: 8px 40px;
-// 		margin: 5px;
-// 		margin-bottom: 10px;
-// 		border: 2px solid #3c63e8; /* 첫 번째 NavbarSection에만 테두리 추가 */
-// 	}
-// `;
 
 //
