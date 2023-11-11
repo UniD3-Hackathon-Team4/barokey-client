@@ -1,5 +1,11 @@
 import * as S from "./Header.style";
 import React, { useState } from "react";
+// import {
+// 	TotalCongestionButton,
+// 	LocalCongestionButton,
+// 	SubwayCongestionButton,
+// 	RoadView,
+// } from "/components";
 
 const Header = () => {
 	const [selectedItem, setSelectedItem] = useState(null);
@@ -29,7 +35,9 @@ const Header = () => {
 			<S.Navbar>
 				<S.NavbarSection style={keywordStyle}>키워드</S.NavbarSection>
 				<S.NavbarSection
-					onClick={() => handleItemClick("전체 혼잡도")}
+					onClick={() => {
+						handleItemClick("전체 혼잡도");
+					}}
 					selected={selectedItem === "전체 혼잡도"}
 				>
 					전체 혼잡도
