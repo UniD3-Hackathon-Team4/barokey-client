@@ -1,12 +1,11 @@
-import { Header } from "../../components"; // Header 컴포넌트 import 추가
+import { Header, News } from "../../components"; // Header 컴포넌트 import 추가
 import * as S from "./HomePage.style";
 import WordCloud from "../../components/WordCloud/WordCloud";
 
 const HomePage = () => {
 	return (
-		<>
-			<S.PageLayout>
-				<Header/>
+		<S.PageLayout>
+			<Header />
 				<div style={{
 					width: "100%",
 					display: "flex",
@@ -32,6 +31,7 @@ const HomePage = () => {
 						{keyword: "극단적인 선택", count: 7},
 					]}/>
 				</div>
+        <News />
 			</S.PageLayout>
 		</>
 	);

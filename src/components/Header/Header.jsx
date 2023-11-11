@@ -1,4 +1,3 @@
-// Header.js
 import * as S from "./Header.style";
 import React, { useState } from "react";
 
