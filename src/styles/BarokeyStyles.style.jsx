@@ -1,6 +1,9 @@
 import { css } from "@emotion/react";
 
 export const BarokeyStyles = css`
+	* {
+		font-family: "Spoqa Han Sans Neo", "sans-serif";
+	}
 	html {
 		width: 100%;
 		height: 100%;
@@ -9,6 +12,7 @@ export const BarokeyStyles = css`
 	}
 
 	body {
+		font-family: "Spoqa Han Sans", sans-serif;
 		height: 100%;
 	}
 
@@ -45,7 +49,7 @@ export const BarokeyStyles = css`
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		max-width: 1100px;
+		/* max-width: 1100px; */
 		min-width: 320px;
 		height: 100%;
 		margin: 0 auto;

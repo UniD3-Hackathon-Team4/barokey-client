@@ -1,11 +1,11 @@
-import { PageLayout } from "../../components";
+import { Header } from "../../components"; // Header 컴포넌트 import 추가
 import * as S from "./HomePage.style";
 
 const HomePage = () => {
 	return (
-		<PageLayout>
-			<S.Container>바로키</S.Container>
-		</PageLayout>
+		<S.PageLayout>
+			<Header />
+		</S.PageLayout>
 	);
 };
 
