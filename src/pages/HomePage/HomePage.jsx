@@ -11,7 +11,7 @@ const HomePage = () => {
 					width: "100%",
 					display: "flex",
 					justifyContent: "center",
-					marginTop: "10vh",
+					marginTop: "5vh",
 				}}
 			>
 				<WordCloud

@@ -12,7 +12,7 @@ export default function WordCloud({ keywords }) {
 	const arrKeywordsSize = useMemo(
 		() =>
 			keywords?.reduce((acc, dta) => {
-				acc[dta["keyword"]] = dta["count"];
+				acc[dta["keyword"]] = Math.pow(dta["count"], 3.5);
 				return acc;
 			}, {}),
 		[keywords]
@@ -37,7 +37,7 @@ export default function WordCloud({ keywords }) {
 		const height = 400; // outer height, in pixels
 		const maxWords = 40; // maximum number of words to extract from the text
 		const fontFamily = "Spoqa Han Sans"; // font family
-		const fontScale = 30; // base font size
+		const fontScale = 3.5; // base font size
 		const padding = 0; // amount of padding between the words (in pixels)
 		const rotate = 0; // a constant or function to rotate the words
 		const data = d3
