@@ -1,4 +1,3 @@
-// Header.jsx 파일 내에서 수정
 import * as S from "./Header.style";
 import React from "react";
 
