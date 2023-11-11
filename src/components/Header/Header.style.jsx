@@ -46,10 +46,20 @@ export const Navbar = styled.nav`
 	gap: 40px;
 `;
 
-export const NavbarSection = styled.nav`
+export const NavbarSection = styled.div`
 	color: #fff;
 	text-align: center;
 	font-size: 17px;
 	font-weight: 700;
 	padding: 10px 20px;
+	margin: 5px;
+
+	&:first-child {
+		border-radius: 20px;
+		background: transparent;
+		padding: 8px 30px;
+		margin: 5px;
+		margin-bottom: 10px;
+		border: 2px solid #3c63e8; /* 첫 번째 NavbarSection에만 테두리 추가 */
+	}
 `;
