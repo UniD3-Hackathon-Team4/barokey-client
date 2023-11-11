@@ -1,4 +1,12 @@
-import { Header, News, WordCloud } from "../../components"; // Header 컴포넌트 import 추가
+import {
+	Header,
+	News,
+	WordCloud,
+	TotalCongestionButton,
+	LocalCongestionButton,
+	SubwayCongestionButton,
+	RoadView,
+} from "../../components"; // Header 컴포넌트 import 추가
 import * as S from "./HomePage.style";
 // import WordCloud from "../../components/WordCloud/WordCloud";
 
