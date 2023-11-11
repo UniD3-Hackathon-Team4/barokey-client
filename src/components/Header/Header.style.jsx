@@ -49,6 +49,8 @@ export const Navbar = styled.nav`
 `;
 
 export const NavbarSection = styled.span`
+	display: flex;
+	align-items: center;
 	color: #fff;
 	text-align: center;
 	align-content: center;
