@@ -1,11 +1,11 @@
 import * as S from "./Header.style";
 import React, { useState } from "react";
-// import {
-// 	TotalCongestionButton,
-// 	LocalCongestionButton,
-// 	SubwayCongestionButton,
-// 	RoadView,
-// } from "/components";
+import {
+	TotalCongestionButton,
+	LocalCongestionButton,
+	SubwayCongestionButton,
+	RoadView,
+} from "../../components";
 
 const Header = () => {
 	const [selectedItem, setSelectedItem] = useState(null);
@@ -21,6 +21,21 @@ const Header = () => {
 		margin: "5px ",
 		marginBottom: "10px",
 		border: "2px solid #3c63e8",
+	};
+
+	const renderMapComponent = () => {
+		switch (selectedItem) {
+			case "전체 혼잡도":
+				return <TotalCongestionButton />;
+			case "지역 혼잡도":
+				return <LocalCongestionButton />;
+			case "도로 상황":
+				return <RoadView />;
+			case "지하철 상황":
+				return <SubwayCongestionButton />;
+			default:
+				return null;
+		}
 	};
 
 	return (
@@ -61,6 +76,8 @@ const Header = () => {
 					지하철 상황
 				</S.NavbarSection>
 			</S.Navbar>
+			{/* Render the selected map component */}
+			<div style={{ marginTop: "20px" }}>{renderMapComponent()}</div>
 		</S.Header>
 	);
 };
