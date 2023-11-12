@@ -13,9 +13,11 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.h2`
-	font-size: 28px;
+	font-size: 38px;
 	font-weight: 700;
+    letter-spacing: 6px;
 	padding: 10px;
+    margin-top: 70px;
 	margin-bottom: 20px;
 `;
 
@@ -30,7 +32,8 @@ export const Contents = styled.a`
     margin-bottom: 10px;
     width: 100%;
 	font-size: 15px;
-	padding: 20px;
+	padding: 32px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.05);
 	background-color: white;
 	border-radius: 20px;
 `;

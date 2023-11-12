@@ -1,10 +1,7 @@
 const getKeywordDetails = async (keyword) => {
-    const url = `/api/keywords/${keyword}`
-    console.log(url)
-    const response = await fetch(url)
-    return await response.json()
-}
+  const url = `/api/keywords/${keyword}`;
+  const response = await fetch(url);
+  return await response.json();
+};
 
-export {
-    getKeywordDetails
-}
+export { getKeywordDetails };

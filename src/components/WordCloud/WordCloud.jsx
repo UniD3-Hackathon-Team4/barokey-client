@@ -1,8 +1,10 @@
 import * as d3 from "d3";
 import Cloud from "d3-cloud";
 import { useCallback, useRef, useMemo } from "react";
+import {useNavigate} from "react-router-dom";
 
 export default function WordCloud({ keywords }) {
+	const navigate = useNavigate()
 	const gRef = useRef(null);
 
 	const arrKeywords = useMemo(
@@ -54,7 +56,13 @@ export default function WordCloud({ keywords }) {
 			.attr("font-family", fontFamily)
 			.attr("text-anchor", "middle");
 
-		const g = d3.select(gRef.current).attr("transform", `translate(${marginLeft},${marginTop})`);
+		if (svg.node().hasChildNodes()) {
+			svg.selectAll("*").remove();
+		}
+
+		const g = svg.append('g').attr("transform", `translate(${marginLeft},${marginTop})`);
+
+		const registeredColor = ["#ff686b", "#f65558", "#ff9130", "#7743db", "#ffc436", "#B15EFF", "#F875AA", "#D2DE32", "#016A70", "#C38154", "#FF6969", "#9EB384", "#9E9FA5", "#00B8A9", "#2192FF", "#39B5E0", "#5272F2", "#FF6D60", "#F7D060"]
 
 		const cloud = Cloud()
 			.size([width - marginLeft - marginRight, height - marginTop - marginBottom])
@@ -63,19 +71,29 @@ export default function WordCloud({ keywords }) {
 			.rotate(rotate)
 			.fontSize((d) => Math.sqrt(d.size) * fontScale)
 			.on("word", ({ size, x, y, rotate, text }) => {
-				g.append("text")
-					.attr("font-size", size)
-					.attr("font-family", fontFamily)
+				const t = g.append("text")
+				t.attr("font-size", size)
 					.style("font-family", fontFamily)
-					.attr("transform", `translate(${x},${y}) rotate(${rotate})`)
+					.style('fill', registeredColor[Math.floor(Math.random() * registeredColor.length)])
 					.text(text)
+					// .attr('transform-origin', 'center')
 					.on('click', () => {
-						console.log(text)
+						navigate(`/${text}`)
+					})
+					.on('mouseover', () => {
+						t.style('font-weight', 700)
+						// t.transition().attr('transform', 'scale(1.5)')
+					})
+					.on('mouseout', () => {
+						t.style('font-weight', 500)
+						// t.transition().attr('transform', 'scale(1.0)')
 					})
 					.style('cursor', 'pointer')
-					.style("fill", function () {
-						return "hsl(" + Math.random() * 360 + ",100%,30%)";
-					});
+					.attr("transform", `translate(${x + (Math.random() - 0.5) * 100},${y + (Math.random() - 0.5) * 70}) rotate(${rotate})`)
+					.transition()
+					.duration(800)
+					.ease(d3.easeQuad)
+					.attr("transform", `translate(${x},${y}) rotate(${rotate})`)
 			});
 		cloud.start();
 	};
@@ -83,8 +101,6 @@ export default function WordCloud({ keywords }) {
 	if (!keywords) return null;
 
 	return (
-		<svg width={640} height={400} ref={WordCloud}>
-			<g ref={gRef} />
-		</svg>
+		<svg width={640} height={400} ref={WordCloud}/>
 	);
 }
