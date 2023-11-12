@@ -6,6 +6,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <HomePage />,
   },
+  {
+    path: '/:keyword',
+    element: <HomePage />,
+  },
 ]);
 
 export default router;

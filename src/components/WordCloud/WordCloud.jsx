@@ -69,6 +69,10 @@ export default function WordCloud({ keywords }) {
 					.style("font-family", fontFamily)
 					.attr("transform", `translate(${x},${y}) rotate(${rotate})`)
 					.text(text)
+					.on('click', () => {
+						console.log(text)
+					})
+					.style('cursor', 'pointer')
 					.style("fill", function () {
 						return "hsl(" + Math.random() * 360 + ",100%,30%)";
 					});

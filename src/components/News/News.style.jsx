@@ -19,11 +19,16 @@ export const Header = styled.h2`
 	margin-bottom: 20px;
 `;
 
-export const Contents = styled.div`
+export const Contents = styled.a`
 	display: flex;
 	flex-direction: column;
 	/* justify-content: center; */
+    text-decoration: none;
+    color: inherit;
 	max-width: 1100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
 	font-size: 15px;
 	padding: 20px;
 	background-color: white;

@@ -14,8 +14,11 @@ module.exports = function (app) {
 	app.use(
 		"/api",
 		createProxyMiddleware({
-			target: "http://localhost:4000",
+			target: "http://15.164.251.139/api",
 			changeOrigin: true,
+			pathRewrite: {
+				"^/api": "",
+			}
 		})
 	);
 };

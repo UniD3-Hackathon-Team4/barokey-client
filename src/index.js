@@ -5,20 +5,23 @@ import reportWebVitals from './reportWebVitals';
 import { Global, css } from '@emotion/react';
 import { SpoqaHanSansFont, resetStyles, BarokeyStyles } from './styles';
 import router from './router';
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+root.render(<React.StrictMode>
     <Global
-      styles={css`
-        ${SpoqaHanSansFont}
-        ${resetStyles}
-				${BarokeyStyles}
-      `}
+        styles={css`
+          ${SpoqaHanSansFont}
+          ${resetStyles}
+          ${BarokeyStyles}
+        `}
     />
-    <RouterProvider router={router} />
-  </React.StrictMode>
-);
+    <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router}/>
+    </QueryClientProvider>
+</React.StrictMode>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

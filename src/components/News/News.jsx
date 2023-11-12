@@ -1,15 +1,33 @@
 import * as S from "./News.style";
-import React from "react";
+import React, {Suspense} from "react";
+import {getKeywordDetails} from "./api";
+import {useQuery} from "@tanstack/react-query";
 
-const News = () => {
+const News = ({keyword="화재"}) => {
+	const {data} = useQuery({
+			queryKey: ["headlines", keyword],
+			queryFn: () => getKeywordDetails(keyword),
+			suspense: true,
+		}
+	);
+	console.log(data)
+	const headlines = data.headlines
 	return (
 		<S.Container>
 			<S.Header>소 식</S.Header>
-			<S.Contents>
-				<S.ContentsTitle>전국 출몰하는</S.ContentsTitle>
-				<S.ContentsDate>2023년 </S.ContentsDate>
-				<S.ContentsSummary> 전국에서 빈대 신도가 잇따르면서</S.ContentsSummary>
-			</S.Contents>
+			<Suspense fallback={<div>Loading...</div>}>
+					{
+						headlines.map((headline) => {
+							return (
+								<S.Contents href={headline.url}>
+									<S.ContentsTitle>{headline.title}</S.ContentsTitle>
+									<S.ContentsDate>{headline.date}</S.ContentsDate>
+									<S.ContentsSummary>{headline.summary}</S.ContentsSummary>
+								</S.Contents>
+							)
+						})
+					}
+			</Suspense>
 		</S.Container>
 	);
 };
